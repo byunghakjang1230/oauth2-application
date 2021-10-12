@@ -1,0 +1,9 @@
+//bootJar { enabled = false }
+jar { enabled = true }
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.5.5'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.5.5'
+    implementation 'org.springframework.security.oauth:spring-security-oauth2:2.3.8.RELEASE'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf:2.5.5'
+    runtimeOnly 'mysql:mysql-connector-java:8.0.25'
+}
