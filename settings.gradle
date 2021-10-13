@@ -3,4 +3,5 @@ include 'm_oauth-authorization-server'
 include 'm_client-authorization-code'
 include 'm_2_1_auth-code-server'
 include 'm_2_2_implicit-server'
+include 'm_2_3_password-server'
 
