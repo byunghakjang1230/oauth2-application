@@ -1,13 +1,11 @@
-package kr.co.kumsung.clientauthorizationcode;
+package kr.co.kumsung.oauthauthorizationserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ClientAuthorizationCodeApplication {
-
+public class OauthAuthorizationServerApplication {
     public static void main(String[] args) {
-        SpringApplication.run(ClientAuthorizationCodeApplication.class, args);
+        SpringApplication.run(OauthAuthorizationServerApplication.class, args);
     }
-
 }
