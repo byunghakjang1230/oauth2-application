@@ -1,6 +1,4 @@
 rootProject.name = 'oauth2-application'
-include 'client-authorization-code'
-include 'oauth-authorization-server'
 include 'm_oauth-authorization-server'
 include 'm_client-authorization-code'
-
+include 'm_2_1_auth-code-server'

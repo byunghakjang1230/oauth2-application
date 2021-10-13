@@ -29,9 +29,3 @@ subprojects {
         testImplementation 'org.springframework.boot:spring-boot-starter-test:2.5.5'
     }
 }
-
-project(':client-authorization-code'){
-    dependencies{
-
-    }
-}
