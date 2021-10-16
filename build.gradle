@@ -2,6 +2,7 @@ buildscript {
     repositories {
         gradlePluginPortal()
     }
+
     dependencies {
         classpath 'org.springframework.boot:spring-boot-gradle-plugin:2.5.5'
         classpath 'io.spring.gradle:dependency-management-plugin:1.0.11.RELEASE'
@@ -28,7 +29,6 @@ subprojects {
     dependencies {
         implementation 'org.springframework.boot:spring-boot-starter-web:2.5.5'
         implementation 'org.springframework.security.oauth:spring-security-oauth2:2.3.8.RELEASE'
-        testImplementation 'org.springframework.boot:spring-boot-starter-test:2.5.5'
         testImplementation 'org.springframework.boot:spring-boot-starter-test:2.5.5'
     }
 }
