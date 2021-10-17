@@ -37,23 +37,24 @@ public class OAuth2AuthorizationServer extends AuthorizationServerConfigurerAdap
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) {
         endpoints.approvalStore(approvalStore())
-                .tokenStore(tokenStore());
+                .tokenStore(tokenStore())
+                .userDetailsService(this::loadUserByUsername);
     }
 
     @Override
-    public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
+    public void configure(AuthorizationServerSecurityConfigurer security) {
         security.passwordEncoder(passwordEncoder());
     }
 
     @Bean
-    public UserDetailsManager users(DataSource dataSource) {
+    public UserDetailsManager userDetailsManager() {
         // 사용자 정보 저장
         UserDetails user = User.builder()
                 .username("test")
                 .password("$2a$04$V3BNB2VTP87wx9hOLSZszebQYGiyfxrAFKNYN5Y2T61l9ZJ/TDR.W")
                 .roles("USER")
                 .build();
-        final JdbcUserDetailsManager jdbcUserDetailsManager = new JdbcUserDetailsManager(dataSource);
+        final JdbcUserDetailsManager jdbcUserDetailsManager = new JdbcUserDetailsManager(this.dataSource);
         jdbcUserDetailsManager.createUser(user);
         return jdbcUserDetailsManager;
     }
@@ -73,5 +74,9 @@ public class OAuth2AuthorizationServer extends AuthorizationServerConfigurerAdap
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder(4);
+    }
+
+    private UserDetails loadUserByUsername(String username) {
+        return userDetailsManager().loadUserByUsername(username);
     }
 }
