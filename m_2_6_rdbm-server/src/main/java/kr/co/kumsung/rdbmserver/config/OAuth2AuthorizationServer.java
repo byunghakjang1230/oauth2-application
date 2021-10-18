@@ -38,7 +38,7 @@ public class OAuth2AuthorizationServer extends AuthorizationServerConfigurerAdap
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) {
         endpoints.approvalStore(approvalStore())
                 .tokenStore(tokenStore())
-                .userDetailsService(this::loadUserByUsername);
+                .userDetailsService(userDetailsManager());
     }
 
     @Override
@@ -74,9 +74,5 @@ public class OAuth2AuthorizationServer extends AuthorizationServerConfigurerAdap
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder(4);
-    }
-
-    private UserDetails loadUserByUsername(String username) {
-        return userDetailsManager().loadUserByUsername(username);
     }
 }
