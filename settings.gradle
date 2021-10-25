@@ -6,4 +6,5 @@ include 'm_2_4_client-credentials-server'
 include 'm_2_5_refresh-server'
 include 'm_2_6_rdbm-server'
 include 'm_2_7_redis-server'
+include 'm_2_8_oauth2provider'
 
